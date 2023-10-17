@@ -6,8 +6,10 @@ import psycopg2
 from sqlalchemy import create_engine
 from flask_bootstrap import Bootstrap
 
+
+
 app = Flask(__name__, template_folder='templates')
-# app.secret_key = "clave_larga"
+app.secret_key = "clave_larga"
 
 # Configura la conexión a PostgreSQL
 host = "localhost"
@@ -59,4 +61,4 @@ def importar_excel():
     return render_template('tabla.html', df_informeconsolidado=df_informeconsolidado)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8080)
